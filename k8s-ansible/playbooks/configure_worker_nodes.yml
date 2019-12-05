@@ -1,0 +1,14 @@
+---
+- hosts: workers
+
+  vars_files:
+  - env_variables
+
+  tasks:
+  - name: Getting Generated Token To Worker Nodes
+    shell: echo $(grep -i -A1 'kubeadm join' {{ token_file }} | sed 's/\\//' | tr '\n' ' ')
+    ignore_errors: true
+    register: worker_join_token_command
+
+  - name: Joining Worker Nodes With Kubernetes master
+    shell: {{ worker_join_token_command.stdout }} 

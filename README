@@ -3,3 +3,8 @@ Ansible Installation -
 Ansible Default Files & Paths -
 Ansible Inventory File & Contents -
 Ansible Confiuration File ansible.cfg & Usage -
+
+[k8s-ansible]
+	> kubernetes cluster installation by ansible. 
+	>> 1 master, 2 workers
+	>>> flannel CNI 
